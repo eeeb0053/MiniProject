@@ -25,7 +25,7 @@
 		<jstl-version>1.2</jstl-version>
 		<junit-version>4.13.1</junit-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
-		<ojdbc7-version>12.1.0.2</ojdbc7-version>
+		<!-- <ojdbc7-version>12.1.0.2</ojdbc7-version> -->
 		<mybatis-version>3.4.1</mybatis-version>
 		<mybatis-spring-version>1.3.0</mybatis-spring-version>
 		<jstl-api-version>1.2</jstl-api-version>
@@ -201,12 +201,12 @@
 		    <version>${commons-dbcp-version}</version>
 		</dependency>
 		
-		<!-- 오라클 JDBC 드라이버 -->
+		<!-- 오라클 JDBC 드라이버
 		<dependency>
 		    <groupId>com.oracle</groupId>
 		    <artifactId>ojdbc7</artifactId>
 		    <version>${ojdbc7-version}</version>
-		</dependency>
+		</dependency>  -->
 		
 		<!-- mysql 드라이버 -->
 		<dependency>

@@ -134,6 +134,7 @@ span.price {
   background-color: #f1f1f1;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -141,80 +142,38 @@ span.price {
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form>
       <div class="col-50">
             <h3>예약상품 정보</h3>
-            <label for="cname">상품명</label>
-            <i> OOO 전시 </i>
-            <label for="ccnum">일시</label>
-            <i> 2021-02-10 <br/></i>
-            <label for="ccnum">장소</label>
-            <i> 예술의 전당 </i><br/>
-          </div>
-        <div class="row">
-        	
+            <label for="stitle">전시명</label>
+            <input type="text" id="showTitle" name="showtitle" placeholder="OOO전시회" value="OOO전시회">
+            <label for="sdate">일시</label>
+            <input type="text" id="showDate" name="showdate" placeholder="2021-01-01" value="2021-02-10">
+            <label for="slocation">장소</label>
+            <input type="text" id="showLocation" name="showlocation" placeholder="예술의 전당" value="예술의 전당">
+            <label for="sprice">가격</label>
+            <input type="text" id="showPrice" name="showprice" placeholder="10,000" value="8000">
+          </div>      	
           <div class="col-50">
             <h3>예약자 정보</h3>
             <label for="fname"><i class="fa fa-user"></i> 예약자명 </label>
-            <input type="text" id="fname" name="firstname" placeholder="예약자명 입력">
+            <input type="text" id="bookName" name="bname" placeholder="예약자명 입력" value="김영희">
             <label for="email"><i class="fa fa-envelope"></i> 이메일 </label>
-            <input type="text" id="email" name="email" placeholder="abc@example.com">
+            <input type="text" id="bookEmail" name="email" placeholder="abc@example.com" value="123@bit.com">
             <label for="adr"><i class="fa fa-address-card-o"></i> 전화번호 </label>
-            <input type="text" id="email" name="email" placeholder="010-1234-5678">
-          </div>
-          <div class="col-50">
-            <h3>결제</h3>
-            <label for="fname">승인 가능 카드</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">카드명</label>
-            <input type="text" id="cname" name="cardname" placeholder="우리카드">
-            <label for="ccnum">카드번호</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            
-            <div class="row">
-            	<div class="col-50">
-                <label for="expmonth">유효 월</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-              </div>
-              <div class="col-50">
-                <label for="expyear">유효 년도</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-              <div class="col-50">
-                <label for="cvv">비밀번호</label>
-                <input type="text" id="cvv" name="cvv" placeholder="앞 두자리">
-              </div>
-            </div>
-          </div>
-          
+            <input type="text" id="bookPnumber" name="pnumber" placeholder="010-1234-5678" value="010-1234-5678">          
         </div>
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> 개인정보 이용에 동의합니다.
         </label>
-        <input type="submit" value="결제하기" class="btn">
+        <button id="booking-btn" class="btn">예매하기</button>
       </form>
     </div>
   </div>
-  
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>2</b></span></h4>
-      <p><a href="#">상품 1</a> <span class="price">8,000원</span></p>
-      <p><a href="#">상품 2</a> <span class="price">5,000원</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>13,000원</b></span></p>
-    </div>
-  </div>
 </div>
-
+    <script src="${bkg}/js/bkg.js"></script>
+    <script>
+    	$('#booking-btn').click(function() {bkg.booking(`${ctx}`)})
+    </script>
 </body>
 </html>

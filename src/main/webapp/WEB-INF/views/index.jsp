@@ -5,11 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>전자정부 프레임워크 프로젝트</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예매 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<h5>hello</h5>
+    <h2>예매 페이지</h2>
+    <a href="#" id="booking">예매하기</a><br>
+    <a href="#" id="list">예매목록</a><br>
+<script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
+<script>
+	cmm.init(`<%=application.getContextPath() %>`)
+</script>
 </body>
 </html>
