@@ -35,8 +35,7 @@
         where book_num like #{bookNum}
     </select>
     <update id="update" parameterType="com.example.demo.bkg.service.Booking">
-        update bookings set show_title = #{showTitle}, show_date = #{showDate},
-                            show_location = #{showLocation}, show_price = #{showPrice}
+        update bookings set book_name = #{bookName}, book_email = #{bookEmail}, book_pnumber = #{bookPnumber}
         where book_num like #{bookNum}
     </update>
     <delete id="delete" parameterType="com.example.demo.bkg.service.Booking">

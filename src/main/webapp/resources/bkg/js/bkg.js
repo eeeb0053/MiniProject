@@ -2,7 +2,6 @@
 var bkg = bkg || {}
 bkg = (() => {
 	const booking = x => {
-		alert(`예약 진입`)
 		$.ajax({
 			url: `${x}/bookings`,
 			type: `POST`,
@@ -20,13 +19,8 @@ bkg = (() => {
 			dataType: 'json',
             contentType: 'application/json',
             success: d => {
-                if(d === 'SUCCESS'){
-                    alert(`예약 완료`)
-                    location.href=`${x}/move/bkg/list`
-                }else{
-                    alert(`추가 실패`)
-                    location.reload()
-                }
+                alert(`예약 완료`)
+                location.href=`${x}/move/bkg/list`
             },
             error: e => { alert(`추가 실패: ${e}`)}
 		})
@@ -36,16 +30,15 @@ bkg = (() => {
 	$.getJSON(`${x.ctx}/bookings/list/${x.pageSize}/${x.pageNum}`, d => { 
 		$(`<h3/>`)
 		.attr({id: `title`})
-		.text(`예약목록`)
 		.appendTo(`#bkg-data`)
 		$(`<table/>`)
 		.attr({id: `tab`})
 		.css({width: `100%`})
 		.appendTo(`#title`) 
-		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
+		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`).css({height: `33px`})
 		$.each([`예약번호`,`상품명`,`일시`,`장소`,`금액`, '예약자명'], 
 		    (i, j) => {
-			$(`<th>${j}</th>`).css({backgroundColor: `#bfb6b6`, fontSize: `Medium`})
+			$(`<th>${j}</th>`).css({backgroundColor: `#c1c7c7`, fontSize: `16px`})
 			.appendTo(`#tr_1`)
 		})
 		$.each(d.list, 
@@ -56,7 +49,7 @@ bkg = (() => {
 						<td>${j.showLocation}</td>
 						<td>${j.showPrice}</td>
 						<td>${j.bookName}</td></tr>`)
-						.css({padding: `15px`, textAlign: `left`, fontSize: `small`})
+						.css({padding: `20px`, textAlign: `center`, fontSize: `13px`, height: `25px`})
 						.appendTo(`#tab`)
 		})
 		$('.bookNum').each(function(){
@@ -91,7 +84,7 @@ bkg = (() => {
 			(i, j) => {
 			$(`<a/>`)
 			.attr({href: `#`})
-			.css({backgroundColor: (j !== page.pageNum) ? `white` : `#F0B6B6`})
+			.css({backgroundColor: (j !== page.pageNum) ? `#F8F8FF` : `#7ea3a3`})
 			.text(`${j}`)
 			.appendTo(`#bkg_page`)
 			.click(e=> {
@@ -124,58 +117,63 @@ bkg = (() => {
 			$('#bName').text(d.bookName)
 			$('#bEmail').text(d.bookEmail)
 			$('#bPnumber').text(d.bookPnumber)
-
-            $('#update-btn').click(e => {
-                $('#showTitle').html('<input id="update-title" type="text" value="'+d.showTitle+'"/>')
-                $('#showLocation').html('<input id="update-location" type="text" value="'+d.showLocation+'"/>')
-                $('#showDate').html('<input id="update-date" type="text" value="'+d.showDate+'"/>')
-                $('#showPrice').html('<input id="update-price" type="text" value="'+d.showPrice+'"/>')
-                $('#toggle').html('<button id="confirm">확인</button>')
-                $('#confirm').click(e => {
-                    e.preventDefault()
-                    $.ajax({
-                        url: '/bookings',
-                        type: 'PUT',
-                        data: JSON.stringify({
-                            bookNum: d.bookNum,
-                            showTitle: $('#update-title').val(),
-                            showLocation: $('#update-location').val(),
-                            showDate: $('#update-date').val(),
-                            showPrice: $('#update-price').val()
-                        }),
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        success: d => {
-                            if(d.message === 'SUCCESS'){
-                                location.href = '/move/bkg/detail'
-                            }else{
-                                alert(`수정 실패`)
-                            }
-                        },
-                        error: e => {alert(`수정 실패: ${e}`)}
-                    })
-                })
-            })
-            $('#delete-btn').click(e => {
-                e.preventDefault()
-                $.ajax({
-                    url: '/bookings',
-                    type: 'DELETE',
-                    data: JSON.stringify({
-                        resNum: d.resNum
-                    }),
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    success: d => {
-                        if(d.message === 'SUCCESS'){
-                            location.href='/move/bkg/list'
-                        }else{
-                            alert('삭제 실패')
-                        }
-                    },
-                    error: e => { alert(`삭제 실패: ${e}`)}
-                })
-            })
+			$('#multi-btn').html('<td><button id="booking-update-btn" class="btn">수정</button></td>'
+								+'<td><button id="booking-delete-btn" class="btn">삭제</button></td>'
+								+'<td><button id="booking-list-btn" class="btn">목록으로</button></td>')
+			$('#booking-list-btn').click(e => {
+				e.preventDefault()
+				location.href = `${x}/move/bkg/list`
+			})
+			$('#booking-update-btn').click(e => {
+				e.preventDefault()
+	            $('#bName').html(`<input id="update-name" type="text" value="${d.bookName}"/>`)
+	            $('#bEmail').html(`<input id="update-email" type="text" value="${d.bookEmail}"/>`)
+	            $('#bPnumber').html(`<input id="update-pnumber" type="text" value="${d.bookPnumber}"/>`)
+	            $('#multi-btn').html('<td><button id="confirm-btn" class="btn">확인</button></td>'
+	            					 +'<td><button id="cancle-btn" class="btn">취소</button></td>')
+	            $('#confirm-btn').click(e => {
+	                e.preventDefault()
+	                $.ajax({
+	                    url: `${x}/bookings`,
+	                    type: 'PUT',
+	                    data: JSON.stringify({
+	                        bookNum: d.bookNum,
+	                        bookName: $('#update-name').val(),
+	                        bookEmail: $('#update-email').val(),
+	                        bookPnumber: $('#update-pnumber').val(),
+	                    }),
+	                    dataType: 'json',
+	                    contentType: 'application/json',
+	                    success: d => {
+							alert(`수정 완료`)
+	                        location.href = `${x}/move/bkg/detail`
+	                    },
+	                    error: e => {alert(`수정 실패: ${e}`)}
+	                })
+	            })
+				$('#cancle-btn').click(e => {
+					e.preventDefault()
+					location.href = `${x}/move/bkg/detail`
+				})
+			})
+			
+			$('#booking-delete-btn').click(e => {
+				e.preventDefault()
+				$.ajax({
+			        url: `${x}/bookings`,
+			        type: 'DELETE',
+			        data: JSON.stringify({
+			            bookNum: d.bookNum
+			        }),
+			        dataType: 'json',
+			        contentType: 'application/json',
+			        success: d => {
+						alert(`삭제 완료`)
+		                location.href=`${x}/move/bkg/list`
+			        },
+			        error: e => { alert(`삭제 실패: ${e}`)}
+			    })
+			})
         })
 	}
 	return {booking, list, detail}

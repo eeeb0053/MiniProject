@@ -7,11 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>상세보기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body {
-  font-family: Arial;
-  font-size: 17px;
+body {
+  font-family: Roboto, Arial, sans-serif;
+  ont-size: 15px;
+  color: #525252;
   padding: 8px;
 }
 
@@ -24,7 +26,8 @@
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
-  margin: 0 -16px;
+  margin: 0 0px;
+  width: 70%;
 }
 
 .col-25 {
@@ -64,8 +67,10 @@ input[type=text] {
 }
 
 label {
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   display: block;
+  font-weight: bold;
 }
 
 .icon-container {
@@ -75,7 +80,7 @@ label {
 }
 
 .btn {
-  background-color: #4CAF50;
+  background-color: #467575;
   color: white;
   padding: 12px;
   margin: 10px 0;
@@ -83,15 +88,32 @@ label {
   width: 100%;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #2F4F4F;
 }
 
 a {
-  color: #2196F3;
+  color: #598585;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #2f4f4f;
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 hr {
@@ -134,42 +156,60 @@ span.price {
   overflow: hidden;
   background-color: #f1f1f1;
 }
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 20px;
+  margin-right: 0;
+  font-weight: bold;
+}
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<h2>예약하기</h2>
+<h2>상세보기</h2>
 <div class="row">
   <div class="col-75">
     <div class="container">
       <form>
       <div class="col-50">
-            <h3>예약상품 정보</h3>
+      		<p style="text-align:right;"><a href="#" id="go-home">홈으로</a></p>
+            <h3 style="text-align:center;">예약상품 정보</h3>
             <label for="stitle">예약번호</label>
-            <span id="bNum"></span>
+            <p style="font-size:15px; color:gray;" id="bNum"></p><hr color="#DCDCDC">
             <label for="stitle">전시명</label>
-            <span id="sTitle"></span>
+            <p style="font-size:15px; color:gray;" id="sTitle"></p><hr color="#DCDCDC">
             <label for="sdate">일시</label>
-            <span id="sDate"></span>
+            <p style="font-size:15px; color:gray;" id="sDate"></p><hr color="#DCDCDC">
             <label for="slocation">장소</label>
-            <span id="sLocation"></span>
+            <p style="font-size:15px; color:gray;" id="sLocation"></p><hr color="#DCDCDC">
             <label for="sprice">가격</label>
-            <span id="sPrice"></span>
+            <p style="font-size:15px; color:gray;" id="sPrice"></p><hr color="#DCDCDC"><br>
           </div>      	
           <div class="col-50">
-            <h3>예약자 정보</h3>
+            <h3 style="text-align:center;">예약자 정보</h3>
             <label for="fname"><i class="fa fa-user"></i> 예약자ID </label>
-            <span id="bId"></span>
+            <p style="font-size:15px; color:gray;" id="bId"></p><hr color="#DCDCDC">
             <label for="fname"><i class="fa fa-user"></i> 예약자명 </label>
-            <span id="bName"></span>
+            <p style="font-size:15px; color:gray;" id="bName"></p><hr color="#DCDCDC">
             <label for="email"><i class="fa fa-envelope"></i> 이메일 </label>
-            <span id="bEmail"></span>
+            <p style="font-size:15px; color:gray;" id="bEmail"></p><hr color="#DCDCDC">
             <label for="adr"><i class="fa fa-address-card-o"></i> 전화번호 </label>
-            <span id="bPnumber"></span>         
+            <p style="font-size:15px; color:gray;" id="bPnumber"></p><hr color="#DCDCDC">       
         </div>
-        <table><tbody><tr>
-		<td><button id="booking-update-btn" class="btn">수정</button></td>
-		<td><button id="booking-delete-btn" class="btn">삭제</button></td>
+        <table style="margin-left: auto; margin-right: auto;"><tbody><tr id="multi-btn">
+		
 		</tr></tbody></table>
 
       </form>
@@ -177,8 +217,10 @@ span.price {
   </div>
 </div>
     <script src="${bkg}/js/bkg.js"></script>
+    <script src="${cmm}/js/cmm.js"></script>
 	<script>
     	bkg.detail(`${ctx}`)
+    	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
     </script>
 </body>
 </html>

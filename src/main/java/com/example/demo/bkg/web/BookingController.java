@@ -53,15 +53,19 @@ public class BookingController {
         return bookingMapper.selectById(bookNum);
     }
     @PutMapping("")
-    public Map<?,?> update(@RequestBody Booking booking){
-    	var map = new HashMap<>();
-        map.put("message", (bookingService.update(booking) == 1) ? "SUCCESS" : "FAILURE");
-        return map;
+    public Messenger update(@RequestBody Booking booking){
+    	logger.info("==============수정할 예약번호: "+booking.getBookNum());
+        return bookingMapper.update(booking) == 1 ? Messenger.SUCCESS : Messenger.FAILURE;
     }
     @DeleteMapping("")
-    public Map<?,?> delete(@RequestBody Booking booking){
-    	var map = new HashMap<>();
-        map.put("message", (bookingService.delete(booking) == 1) ? "SUCCESS" : "FAILURE");
-        return map;
+    public Messenger delete(@RequestBody Booking booking){
+    	logger.info("==============삭제할 예약번호: "+booking.getBookNum());
+        return bookingMapper.delete(booking) == 1 ? Messenger.SUCCESS : Messenger.FAILURE;
+    }
+    @GetMapping("/insert-many/{count}")
+    public String insertMany(@PathVariable String count) {
+    	logger.info(String.format("Insert %s Bookings ...",count));
+    	bookingService.insertMany(Integer.parseInt(count));
+    	return string.apply(bookingMapper.count());
     }
 }

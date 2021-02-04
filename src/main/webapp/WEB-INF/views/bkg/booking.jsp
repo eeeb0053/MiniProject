@@ -5,15 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약하기</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
-  font-family: Arial;
-  font-size: 17px;
+  font-family: Roboto, Arial, sans-serif;
+  ont-size: 15px;
+  color: #525252;
   padding: 8px;
 }
-
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 20px;
+  margin-right: 0;
+  font-weight: bold;
+}
 * {
   box-sizing: border-box;
 }
@@ -23,7 +34,8 @@ body {
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
-  margin: 0 -16px;
+  margin: 0 0px;
+  width: 70%;
 }
 
 .col-25 {
@@ -90,7 +102,24 @@ label {
 }
 
 a {
-  color: #2196F3;
+  color: #598585;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #2f4f4f;
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 hr {
@@ -144,24 +173,25 @@ span.price {
     <div class="container">
       <form>
       <div class="col-50">
+      		<p style="text-align:right;"><a href="#" id="go-home">홈으로</a></p>
             <h3>예약상품 정보</h3>
             <label for="stitle">전시명</label>
-            <input type="text" id="showTitle" name="showtitle" placeholder="OOO전시회" value="OOO전시회">
+            <input type="text" id="showTitle" name="showtitle" placeholder="OOO전시회">
             <label for="sdate">일시</label>
-            <input type="text" id="showDate" name="showdate" placeholder="2021-01-01" value="2021-02-10">
+            <input type="text" id="showDate" name="showdate" placeholder="2021-01-01">
             <label for="slocation">장소</label>
-            <input type="text" id="showLocation" name="showlocation" placeholder="예술의 전당" value="예술의 전당">
+            <input type="text" id="showLocation" name="showlocation" placeholder="예술의 전당">
             <label for="sprice">가격</label>
-            <input type="text" id="showPrice" name="showprice" placeholder="10,000" value="8000">
+            <input type="text" id="showPrice" name="showprice" placeholder="10,000">
           </div>      	
           <div class="col-50">
             <h3>예약자 정보</h3>
             <label for="fname"><i class="fa fa-user"></i> 예약자명 </label>
-            <input type="text" id="bookName" name="bname" placeholder="예약자명 입력" value="김영희">
+            <input type="text" id="bookName" name="bname" placeholder="예약자명 입력">
             <label for="email"><i class="fa fa-envelope"></i> 이메일 </label>
-            <input type="text" id="bookEmail" name="email" placeholder="abc@example.com" value="123@bit.com">
+            <input type="text" id="bookEmail" name="email" placeholder="abc@example.com">
             <label for="adr"><i class="fa fa-address-card-o"></i> 전화번호 </label>
-            <input type="text" id="bookPnumber" name="pnumber" placeholder="010-1234-5678" value="010-1234-5678">          
+            <input type="text" id="bookPnumber" name="pnumber" placeholder="010-1234-5678">          
         </div>
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> 개인정보 이용에 동의합니다.
@@ -172,8 +202,10 @@ span.price {
   </div>
 </div>
     <script src="${bkg}/js/bkg.js"></script>
+    <script src="${cmm}/js/cmm.js"></script>
     <script>
     	$('#booking-btn').click(function() {bkg.booking(`${ctx}`)})
+    	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
     </script>
 </body>
 </html>

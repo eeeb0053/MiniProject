@@ -7,12 +7,15 @@ import static java.util.Comparator.comparing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.cmm.utl.DummyGenerator;
 import com.example.demo.cmm.utl.Pagination;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BookingService {
 	@Autowired Booking booking;
 	@Autowired BookingMapper bookingMapper;
+	@Autowired DummyGenerator dummy;
 
     public List<Booking> list(Pagination page) {
     	return bookingMapper.list().stream()
@@ -30,5 +33,13 @@ public class BookingService {
     }
     public int delete(Booking booking) {
         return bookingMapper.delete(booking);
+    }
+    
+    @Transactional
+    public int insertMany(int count) {
+    	for(int i = 0; i < count; i++) {
+    		bookingMapper.insert(dummy.makeBooking());
+    	}
+    	return count(); 
     }
 }
