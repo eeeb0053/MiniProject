@@ -28,9 +28,9 @@ public class HomeController {
         logger.info("Hello. This is LogManager's logger");
         return "index";
     }
-    @GetMapping("/move/{dir}/{page}")
-    public String move(@PathVariable String dir, @PathVariable String page){
-        logger.info("이동경로>>> "+dir+"/"+page);
-        return String.format("%s/%s", dir, page);
+    @GetMapping("/move/bkg/{page}")
+    public String move(@PathVariable String page){
+        logger.info("이동경로>>> bkg/"+page);
+        return String.format("bkg:%s", page);
     }
 }

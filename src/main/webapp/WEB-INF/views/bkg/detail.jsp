@@ -174,10 +174,8 @@ h3 {
   margin-right: 0;
   font-weight: bold;
 }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+</style>
+
 <h2>상세보기</h2>
 <div class="row">
   <div class="col-75">
@@ -216,11 +214,9 @@ h3 {
     </div>
   </div>
 </div>
-    <script src="${bkg}/js/bkg.js"></script>
-    <script src="${cmm}/js/cmm.js"></script>
-	<script>
-    	bkg.detail(`${ctx}`)
-    	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
-    </script>
-</body>
-</html>
+<script src="${bkg}/js/bkg.js"></script>
+<script src="${cmm}/js/cmm.js"></script>
+<script>
+	bkg.detail(`${ctx}`)
+	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
+</script>

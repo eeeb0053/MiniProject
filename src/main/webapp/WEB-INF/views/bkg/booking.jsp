@@ -2,13 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예약하기</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
   font-family: Roboto, Arial, sans-serif;
@@ -163,9 +156,6 @@ span.price {
   background-color: #f1f1f1;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
 
 <h2>예약하기</h2>
 <div class="row">
@@ -201,11 +191,11 @@ span.price {
     </div>
   </div>
 </div>
-    <script src="${bkg}/js/bkg.js"></script>
-    <script src="${cmm}/js/cmm.js"></script>
-    <script>
-    	$('#booking-btn').click(function() {bkg.booking(`${ctx}`)})
-    	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
-    </script>
-</body>
-</html>
+
+<script src="${bkg}/js/bkg.js"></script>
+<script src="${cmm}/js/cmm.js"></script>
+<script>
+	$('#booking-btn').click(function() {bkg.booking(`${ctx}`)})
+	$('#go-home').click(function() {cmm.goHome(`${ctx}`)})
+</script>
+

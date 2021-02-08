@@ -2,13 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예약목록</title>
-    <style>
+<style>
 body {
   font-family: Roboto, Arial, sans-serif;
   ont-size: 15px;
@@ -197,9 +191,7 @@ table, th, tr, td{
  }
  table tr:nth-child(even){background-color: #FFFAFA}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+
 <h2>예약목록</h2>
 <div class="row">
   <div class="col-75">
@@ -214,11 +206,9 @@ table, th, tr, td{
     </div>
   </div>
 </div>
-    <script src="${bkg}/js/bkg.js"></script>
-    <script src="${cmm}/js/cmm.js"></script>
-    <script>
-        bkg.list({ctx: `${ctx}`, pageSize: `10`, pageNum: `1`})
-        $('#go-home').click(function() {cmm.goHome(`${ctx}`)})
-    </script>
-</body>
-</html>
+<script src="${bkg}/js/bkg.js"></script>
+<script src="${cmm}/js/cmm.js"></script>
+<script>
+    bkg.list({ctx: `${ctx}`, pageSize: `10`, pageNum: `1`})
+    $('#go-home').click(function() {cmm.goHome(`${ctx}`)})
+</script>
