@@ -64,10 +64,29 @@ input[type=text] {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
+				<h1>전시회 정보</h1>
+	<div class="container">
+	<form>
+		<div class="row">
+        	<div class="col-20">
+				<div id="menu-group">
+					<a href="#" id="add">등록하기</a>
+					<a href="#" id="list">목록보기</a>
+					<a href="#" id="detail">상세보기</a>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+	
+<script src="${shw}/js/shw.js"></script>
+=======
     <h2>예약 페이지</h2>
     <a href="#" id="booking">예약하기</a><br>
     <a href="#" id="list">예약목록</a><br>
     <input type="text" id="bkg-count" placeholder="더미데이터 생성 건수"/><button id="insert-many-bkg">생성</button><br/><br/>
+>>>>>>> refs/heads/develop-keb
 <script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
 <script>
 	cmm.init(`<%=application.getContextPath() %>`)

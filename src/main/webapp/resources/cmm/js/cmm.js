@@ -1,6 +1,12 @@
 'use strict'
 var cmm = cmm || {}
 cmm = (() => {
+<<<<<<< HEAD
+	const init = x => { // add 페이지로 이동하는 거
+        $('#add').click(e => {location.href=`${x}/move/shw/add`})
+        $('#list').click(e => {location.href=`${x}/move/shw/list`})
+		$('#detail').click(e => {location.href=`${x}/move/shw/detail`})
+=======
 	const init = x => {
         $('#list').click(e => {location.href=`${x}/move/bkg/list`})
         $('#booking').click(e => {location.href=`${x}/move/bkg/booking`})
@@ -11,6 +17,7 @@ cmm = (() => {
 				location.reload()
 			})
 		})
+>>>>>>> refs/heads/develop-keb
 	}
 	const goHome = x => {location.href = `${x}/`}
 	return { init, goHome }
