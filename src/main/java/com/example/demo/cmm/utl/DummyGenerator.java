@@ -10,8 +10,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
+import com.example.demo.cmm.enm.Path;
+import com.example.demo.uss.service.User;
 
-import com.example.demo.bkg.service.Booking;
 
 @Service("dummy")
 public class DummyGenerator {
@@ -39,21 +40,8 @@ public class DummyGenerator {
 		}
 		return year+"-"+month+"-"+date;
 	}
-	public String makeRegdate() {
-		int year = random.apply(2020, 2022);
-		int month = random.apply(1, 13);
-		int date = 0;
-		switch(month) {
-		case 2: date = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 
-				random.apply(1, 30) : random.apply(1, 29) ; break;
-		case 4: case  6: case  9: case  11: date = random.apply(1, 31);	break;
-		default: date = random.apply(1, 32); break;
-		}
-		return year+"-"+month+"-"+date;
-	}
-	public String makeExamdate() {
-		return "2020-11-30";
-	}
+	
+	
 	/*
 	 * 랜덤 성별 생성하기
 	 * "M" - male, "F" - female
@@ -121,44 +109,21 @@ public class DummyGenerator {
 	    		.get(0);
 	    return fname.get(0)+a[0]+a[1];
 	}
-	public String makeSubject() {
-		List<String> ls = Arrays.asList("Java","Spring","Python","jQuery","eGovframe");
-		 Collections.shuffle(ls);
-		 return ls.get(0);
-	}
-	public int makeSubNum() {
-		List<Integer> ls = Arrays.asList(1,2,3,4,5);
-		 Collections.shuffle(ls);
-		 return ls.get(0);
-	}
 	
+
 	public String makeEmail() {
 		List<String> ls = Arrays.asList("@test.com","@gmail.com","@naver.com");
 		Collections.shuffle(ls);
 		return makeUserid()+ls.get(0);
 	}
-	public String makeLocation() {
-		List<String> ls = Arrays.asList("예술의 전당","세종문화회관","성남아트센터","디뮤지엄");
-		 Collections.shuffle(ls);
-		 return ls.get(0);
-	}
-	public String makePrice() {
-		List<String> ls = Arrays.asList("5,000","8,000","10,000","무료");
-		 Collections.shuffle(ls);
-		 return ls.get(0);
-	}
+	
 
-	public Booking makeBooking() {
-		return new Booking(0, 
-				"OOOOO 전시회", 
-				makeRegdate(), 
-				makeLocation(),
-				makePrice(),
-				makeUserid(),
-				makeUsername(),
-				makeEmail(),
-				makePhoneNumber()
-				);
+	public User makeUser() {
+		return new User(makeUserid(), "1", makeBirthday(), makeEmail(), makeGender()
+				, makePhoneNumber(), Path.DEFAULT_PROFILE.toString());
 	}
+	
+	
+	
 	
 }
