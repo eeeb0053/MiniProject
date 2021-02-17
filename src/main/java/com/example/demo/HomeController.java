@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
-@SessionAttributes({"ctx","bkg","cmm"})
+@SessionAttributes({"ctx","bkg","cmm", "uss"})
 public class HomeController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired HttpSession session;
@@ -24,12 +24,18 @@ public class HomeController {
     	String ctx = request.getContextPath();
     	session.setAttribute("ctx", ctx);
     	session.setAttribute("bkg", session.getAttribute("ctx")+"/resources/bkg");
+    	session.setAttribute("uss", session.getAttribute("ctx")+"/resources/uss");
     	session.setAttribute("cmm", session.getAttribute("ctx")+"/resources/cmm");
         logger.info("Hello. This is LogManager's logger");
         return "index";
     }
+    @GetMapping("/move/uss/{page}")
+    public String moveUss(@PathVariable String page){
+        logger.info("이동경로>>> uss/"+page);
+        return String.format("uss:%s", page);
+    }
     @GetMapping("/move/bkg/{page}")
-    public String move(@PathVariable String page){
+    public String moveBkg(@PathVariable String page){
         logger.info("이동경로>>> bkg/"+page);
         return String.format("bkg:%s", page);
     }

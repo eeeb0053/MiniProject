@@ -2,13 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>전시회</title>
-    <style>
+<style>
 body {
   font-family: Roboto, Arial, sans-serif;
   ont-size: 15px;
@@ -60,18 +54,12 @@ input[type=text] {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+</style>
     <h2>예약 페이지</h2>
-    <a href="#" id="user-page">유저페이지</a><br>
-    <a href="#" id="exhbn-page">전시페이지</a><br>
-    <a href="#" id="booking-page">예약페이지</a><br>
-    <a href="#" id="review-page">리뷰페이지</a><br>
-<script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
+    <a href="#" id="booking">예약하기</a><br>
+    <a href="#" id="bkg-list">예약목록</a><br>
+    <input type="text" id="bkg-count" placeholder="더미데이터 생성 건수"/><button id="insert-many-bkg">생성</button><br/><br/>
+<script src="${bkg}/js/bkg.js"></script>
 <script>
-	cmm.init(`<%=application.getContextPath() %>`)
+	bkg.init(`${ctx}`)
 </script>
-</body>
-</html>

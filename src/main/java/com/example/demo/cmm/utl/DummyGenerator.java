@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.bkg.service.Booking;
+import com.example.demo.uss.service.User;
 
 @Service("dummy")
 public class DummyGenerator {
@@ -159,6 +160,9 @@ public class DummyGenerator {
 				makeEmail(),
 				makePhoneNumber()
 				);
+	}
+	public User makeUser() {
+		return new User(0, makeUserid(), "1", makeUsername(), makeEmail(), makeGender(), makeBirthday(), makePhoneNumber(), "");
 	}
 	
 }
