@@ -3,10 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>전시회</title>
     <style>
 body {
@@ -61,9 +62,13 @@ input[type=text] {
   border-radius: 3px;
 }
     </style>
+=======
+    <title>게시판</title>
+>>>>>>> refs/heads/develop-pwy
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
     <h2>예약 페이지</h2>
     <a href="#" id="user-page">유저페이지</a><br>
     <a href="#" id="exhbn-page">전시페이지</a><br>
@@ -73,5 +78,28 @@ input[type=text] {
 <script>
 	cmm.init(`<%=application.getContextPath() %>`)
 </script>
+=======
+    <h1> 게시판1 </h1>
+    <div class="container">
+	<form>
+		<div class="row">
+        	<div class="col-20">
+				<div id="menu-group">
+        <a id="write" href="#">글 쓰기</a>
+        <a id="list" href="#">글 목록</a>
+        <a id="detail" href="#">글 상세</a>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+
+        
+<script src="${brd}/js/brd.js"></script>
+    <script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
+    <script>
+    	cmm.init(`<%=application.getContextPath() %>`)
+    </script>
+>>>>>>> refs/heads/develop-pwy
 </body>
 </html>
