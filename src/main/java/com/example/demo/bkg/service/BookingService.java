@@ -7,6 +7,8 @@ import static java.util.Comparator.comparing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.bkg.domain.Booking;
+import com.example.demo.bkg.repository.BookingRepository;
 import com.example.demo.cmm.utl.DummyGenerator;
 import com.example.demo.cmm.utl.Pagination;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class BookingService {
 	@Autowired Booking booking;
-	@Autowired BookingMapper bookingMapper;
+	@Autowired BookingRepository bookingMapper;
 	@Autowired DummyGenerator dummy;
 
     public List<Booking> list(Pagination page) {

@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
-@SessionAttributes({"ctx", "cmm", "bkg", "uss", "brd", "shw"})
+@SessionAttributes({"ctx", "cmm", "bkg", "uss", "rev", "exh"})
 public class HomeController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired HttpSession session;
@@ -26,8 +26,8 @@ public class HomeController {
     	session.setAttribute("bkg", session.getAttribute("ctx")+"/resources/bkg");
     	session.setAttribute("uss", session.getAttribute("ctx")+"/resources/uss");
     	session.setAttribute("cmm", session.getAttribute("ctx")+"/resources/cmm");
-    	session.setAttribute("brd", session.getAttribute("ctx")+"/resources/brd");
-    	session.setAttribute("shw", session.getAttribute("ctx")+"/resources/shw");
+    	session.setAttribute("rev", session.getAttribute("ctx")+"/resources/rev");
+    	session.setAttribute("exh", session.getAttribute("ctx")+"/resources/exh");
         logger.info("Project Initialized ... ");
         
         return "index";

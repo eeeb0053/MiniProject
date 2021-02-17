@@ -6,14 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.cmm.utl.DummyGenerator;
+import com.example.demo.uss.domain.User;
+import com.example.demo.uss.repository.UserRepository;
 
 @Service
 public class UserService {
-	@Autowired UserMapper userMapper;
+	@Autowired UserRepository userRepository;
     @Autowired DummyGenerator dummy;
 
     public int register(User user) {
-        return userMapper.insert(user);
+        return userRepository.insert(user);
     }
 
 	public int insertMany(int count) {
@@ -23,6 +25,6 @@ public class UserService {
 			m = dummy.makeUser();
 			list.add(m);
 		}
-		return userMapper.insertMany(list);
+		return userRepository.insertMany(list);
 	}
 }

@@ -86,11 +86,11 @@ label {
         	<div class="col-20">
 				<div id="menu-group">
 					<a href="#" id="add">등록하기</a>
-					<a href="#" id="list">목록보기</a>
+					<a href="#" id="showlist">목록보기</a>
 					<br>
 					<br>
 			        <a id="write" href="#">글 쓰기</a>
-			        <a id="list" href="#">글 목록</a>
+			        <a id="reviewlist" href="#">글 목록</a>
 			        <a id="detail" href="#">글 상세</a>
 			        <br>
 			        <br>
@@ -106,7 +106,6 @@ label {
 
         
 <script src="<%=application.getContextPath() %>/resources/brd/js/brd.js"></script>
-<script src="<%=application.getContextPath() %>/resources/shw/js/shw.js"></script>
 <script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
 <script>
     	cmm.init(`<%=application.getContextPath() %>`)

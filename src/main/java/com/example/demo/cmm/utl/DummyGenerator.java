@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.bkg.service.Booking;
-import com.example.demo.uss.service.User;
+import com.example.demo.bkg.domain.Booking;
+import com.example.demo.uss.domain.User;
 
 @Service("dummy")
 public class DummyGenerator {
@@ -150,7 +150,7 @@ public class DummyGenerator {
 	}
 
 	public Booking makeBooking() {
-		return new Booking(0, 
+		return null;/*new Booking(0, 
 				"OOOOO 전시회", 
 				makeRegdate(), 
 				makeLocation(),
@@ -159,10 +159,10 @@ public class DummyGenerator {
 				makeUsername(),
 				makeEmail(),
 				makePhoneNumber()
-				);
+				);*/
 	}
 	public User makeUser() {
-		return new User(0, makeUserid(), "1", makeUsername(), makeEmail(), makeGender(), makeBirthday(), makePhoneNumber(), "");
+		return null; /* new User(0, makeUserid(), "1", makeUsername(), makeEmail(), makeGender(), makeBirthday(), makePhoneNumber(), "");*/
 	}
 	
 }
